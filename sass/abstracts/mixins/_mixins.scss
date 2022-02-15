@@ -1,0 +1,15 @@
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Column width with margin
+@mixin column-width($numberColumns: 3) {
+	width: map-get($columns, $numberColumns) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
+}
+
+@mixin foliage-bg {
+	background: url(/wp-content/themes/invitational/svg/foliage-bg.svg) center 100.2%/120vw no-repeat;
+}

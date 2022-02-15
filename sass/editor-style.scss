@@ -1,0 +1,20 @@
+/* Styles for Editor */
+
+@import "bootstrap/scss/bootstrap-grid";
+@import "abstracts/abstracts";
+
+.wp-block {
+
+	@import "generic/normalize";
+	@import "generic/box-sizing";
+	@import "base/base";
+	@import "layouts/no-sidebar";
+	@import "layouts/stage";
+	@import "components/components";
+	@import "utilities/accessibility";
+	@import "utilities/alignments";
+}
+
+html :where(.wp-block) {
+	max-width: 1200px;
+}

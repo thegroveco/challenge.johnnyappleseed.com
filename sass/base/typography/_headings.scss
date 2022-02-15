@@ -1,0 +1,24 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	clear: both;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	color: $color__text-heading;
+}
+
+h3 {
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 45px;
+}
+
+h1,h2,h3,h4 {
+	font-weight: 800;
+}
