@@ -29,7 +29,9 @@ $prizes = get_field("prizes");
 
 //@TODO Cache Bitcoin value for the day.
 $bitcoin_price = json_decode(wp_remote_retrieve_body(wp_remote_get("https://api.coinbase.com/v2/prices/spot?currency=USD")))->data->amount;
-
+echo '<div class="d-none">';
+print_r(wp_remote_retrieve_body(wp_remote_get("https://api.coinbase.com/v2/prices/spot?currency=USD")));
+echo '</div>';
 ?>
 <div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
     <div class="container">
