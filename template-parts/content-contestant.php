@@ -78,6 +78,33 @@ $first_name = get_field("first_name") ?: "This Contestant";
 
                 </div>
             </div>
+                        
+            <?php if ( $videos = get_field('weekly_videos') ) : ?>
+                
+                <div style="height:80px" aria-hidden="true" class="wp-block-spacer mobile-space"></div>
+                
+                <h2 class="mb-4">Weekly Videos</h2>
+                
+                <div class="row">
+                    
+                    <?php foreach( $videos as $video ) : ?>
+                
+                        <div class="col-xl-4 col-lg-6 mb-4">
+                            <div class="weekly-video">
+                                <div class="video-embed mb-3">
+                                    <?= wp_oembed_get( $video["video_url"]); ?>
+                                </div>
+                                <h4 class="mb-1"><?= $video['video_title']; ?></h4>
+                                <p class="mt-1"><?= $video['video_description']; ?></p>
+                            </div>
+                        </div>
+                        
+                    <?php endforeach; ?>
+                    
+                </div>
+            
+            <?php endif; ?>
+
         </div>
 
     </div><!-- .entry-content -->
