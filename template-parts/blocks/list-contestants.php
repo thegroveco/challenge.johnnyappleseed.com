@@ -36,7 +36,12 @@ $contestants = new WP_Query([
             <?php while ($contestants->have_posts()): $contestants->the_post(); ?>
                 <div class="col-lg-4 col-md-6">
                     <div class="contestant-wrapper">
-                        <?= get_the_post_thumbnail(); ?>
+                        <div class="contestant-img">
+                            <?= get_the_post_thumbnail(); ?>
+                            <?php if ( get_field('current_rank', get_the_ID()) &&  get_field('current_rank', get_the_ID()) != 'na' ) : ?>
+                                <img src="<?= get_template_directory_uri(); ?>/img/<?= get_field('current_rank', get_the_ID()); ?>-badge@2x.png" width="92" height="92" class="rank-badge">
+                            <?php endif; ?>
+                        </div>
                         <p><?= get_the_title(); ?></p>
                         <span>From <?= get_field("location_origin", get_the_ID()); ?></span>
                         <div class="contestant--cta">

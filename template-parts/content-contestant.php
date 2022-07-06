@@ -31,6 +31,12 @@ $first_name = get_field("first_name") ?: "This Contestant";
                                href="<?= $social["platform_url"] ?>"><?php get_template_part('svg/icon', $social['social_media_platform']); ?></a>
                         <?php endforeach; ?>
                     </div>
+                    <?php if ( get_field('current_rank') &&  get_field('current_rank') != 'na' ) : ?>
+                        <div class="leader-badge">
+                            <img src="<?= get_template_directory_uri(); ?>/img/<?= get_field('current_rank'); ?>-badge-contestant-page-JAO@2x.png" width="289" height="93" alt="leader badge <?= get_field('current_rank'); ?> place">
+                        </div>
+                    <?php endif; ?>
+                    
                 </div>
             </div>
         </div>
@@ -67,6 +73,13 @@ $first_name = get_field("first_name") ?: "This Contestant";
                 </div>
                 <div class="col-lg-4 col-md-5">
                     <h3><?= $first_name ?>'s Challenges</h3>
+                    <?php if ( $badges = get_field('challenge_leaderboard') ) : ?>
+                        <div class="challenge-leaderboard">
+                            <?php foreach( $badges as $badge ): ?>
+                                <img src="<?= get_template_directory_uri(); ?>/img/leader-<?= $badge ?>@2x.png" width="308" height="89" alt="<?= $badge; ?> leader" class="mb-2">
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
                     <div class="contestant-challenges">
                         <?php foreach (get_field("challenges") as $challenge_id): ?>
                             <a href="<?= get_the_permalink($challenge_id); ?>"

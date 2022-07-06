@@ -122,9 +122,21 @@
 		padding: 40px 40px 60px;
 
 	}
-
-	img {
-		margin-bottom: 24px;
+	
+	.contestant-img {
+		
+		position: relative;
+		
+		img {
+			margin-bottom: 24px;
+		}
+		
+		img.rank-badge {
+			position: absolute;
+			left: 0;
+			bottom: 0;
+		}
+	
 	}
 
 	p {
